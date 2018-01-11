@@ -1,6 +1,6 @@
 from sqlalchemy import Column, DateTime, ForeignKey, \
                        Integer, String, func, Boolean
-from sqlalchemy.orm import backref, relationship, class_mapper
+from sqlalchemy.orm import backref, relationship
 
 from database import Base
 
@@ -56,9 +56,3 @@ class FluxLog(Base):
 
     flux = relationship('Flux', backref=backref('logs',
                                                 cascade='delete,all'))
-
-
-class_mapper(FluxGroup)
-class_mapper(Flux)
-class_mapper(FluxContent)
-class_mapper(FluxLog)
