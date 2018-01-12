@@ -7,26 +7,6 @@ from schema import schema
 app = Flask(__name__)
 app.debug = True
 
-default_query = '''
-{
-  allFluxGroups {
-    edges {
-      node {
-        id,
-        name,
-        department {
-          id,
-          name
-        },
-        role {
-          id,
-          name
-        }
-      }
-    }
-  }
-}'''.strip()
-
 
 app.add_url_rule('/graphql',
                  view_func=GraphQLView.as_view('graphql',
